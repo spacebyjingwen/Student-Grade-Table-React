@@ -8,10 +8,10 @@ The Student Grade Table is a dynamic web application for teachers who want to re
 
 ## Features
 
-*User can view all grades.
-*User can view the average grade.
-*User can add a grade.
-*User can delete a grade.
+* User can view all grades.
+* User can view the average grade.
+* User can add a grade.
+* User can delete a grade.
 
 ## Server API
 
