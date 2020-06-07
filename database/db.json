@@ -17,6 +17,12 @@
       "name": "Douglas Crockford",
       "course": "JavaScript",
       "grade": 100
+    },
+    {
+      "name": "Lisa",
+      "course": "Java",
+      "grade": "65",
+      "id": 33
     }
   ]
 }
