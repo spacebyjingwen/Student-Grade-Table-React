@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.row-adj {
+  margin: 25px 0;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.badge-adj {
+  width: 50px;
+  margin-left: 5px;
+}
