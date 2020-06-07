@@ -13,7 +13,7 @@ function SingleGrade(props) {
 
 function GradeTable(props) {
   return (
-    <table className="table col-8">
+    <table className="table">
       <thead className="thead-dark">
         <tr>
           <th scope="col">Name</th>
