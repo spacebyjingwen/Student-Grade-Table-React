@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
 }
-.row-adj {
-  margin: 25px 0;
+.title-row-adj {
+  margin: 25px 70px;
   align-items: baseline;
   justify-content: space-between;
 }
@@ -11,4 +11,38 @@
 .badge-adj {
   width: 50px;
   margin-left: 5px;
+}
+
+.content-row-adj{
+  margin: 0px 70px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.form-adj {
+  padding: 0;
+}
+
+.group-adj{
+  margin: 15px 0px;
+}
+
+.prepend-adj {
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-adj{
+  width: 70px
+}
+
+button.btn-adj:last-child {
+  margin-left: 10px;
 }
