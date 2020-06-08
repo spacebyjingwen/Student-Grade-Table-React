@@ -85,7 +85,7 @@ class GradeForm extends React.Component {
         </div>
         <div className="button-group">
           <button type="submit" className="btn btn-outline-success btn-adj">Add</button>
-          <button onClick={this.handleCancel} type="reset" className="btn btn-outline-danger btn-adj">Cancel</button>
+          <button onClick={this.handleCancel} type="reset" className="btn btn-outline-warning btn-adj">Cancel</button>
         </div>
       </form>
     );
