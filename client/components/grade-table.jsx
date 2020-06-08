@@ -18,7 +18,7 @@ function SingleGrade(props) {
 function GradeTable(props) {
   return props.grades.length !== 0
     ? (
-      <table className="table col-8">
+      <table className="table col-8 table-adj">
         <thead className="thead-dark">
           <tr>
             <th scope="col">Name</th>
@@ -37,7 +37,7 @@ function GradeTable(props) {
       </table>
     )
     : (
-      <table className="table col-8">
+      <table className="table col-8 table-adj">
         <thead className="thead-dark">
           <tr>
             <th scope="col">Name</th>
