@@ -6,10 +6,12 @@ import GradeForm from './grade-form';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { grades: [] };
+    this.state = { grades: [], editing: null };
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.addNewGrade = this.addNewGrade.bind(this);
     this.deleteGrade = this.deleteGrade.bind(this);
+    this.setEditing = this.setEditing.bind(this);
+    this.editGrade = this.editGrade.bind(this);
   }
 
   componentDidMount() {
@@ -62,17 +64,55 @@ class App extends React.Component {
       .catch(error => console.error(error));
   }
 
+  setEditing(gradeId) {
+    if (gradeId === null) {
+      this.setState({ editing: null });
+    } else {
+      const gradeArr = this.state.grades;
+      const found = gradeArr.find(grade => grade.id === gradeId);
+      this.setState({ editing: found });
+    }
+    return this.state.editing;
+  }
+
+  editGrade(newGrade) {
+    fetch(`/api/grades/${newGrade.id}`, {
+      method: 'PATCH',
+      header: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newGrade)
+    })
+      .then(res => res.json())
+      .then(update => {
+        const newArray = this.state.grades.map(oldGrade => {
+          return oldGrade.id === newGrade.id ? newGrade : oldGrade;
+        });
+        this.setState({ grades: newArray, editing: null });
+      })
+      .catch(error => console.error(error));
+  }
+
   render() {
-    return (
+    return this.state.editing === null ? (
       <>
         <div className="row title-row-adj">
           <PageTitle text="Student Grade Table" average={this.getAverageGrade()} />
         </div>
         <div className="row content-row-adj">
-          <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade}/>
+          <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade} setEditing={this.setEditing} />
           <div className="col-3 form-adj">
-            <h4>Add New Grade</h4>
-            <GradeForm onSubmit = {this.addNewGrade}/>
+            <GradeForm onSubmit={this.addNewGrade} edit={this.state.editing} />
+          </div>
+        </div>
+      </>
+    ) : (
+      <>
+        <div className="row title-row-adj">
+          <PageTitle text="Student Grade Table" average={this.getAverageGrade()} />
+        </div>
+        <div className="row content-row-adj">
+          <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade} setEditing={this.setEditing} />
+          <div className="col-3 form-adj">
+            <GradeForm onSubmit={this.editGrade} edit={this.state.editing} status={this.setEditing}/>
           </div>
         </div>
       </>
