@@ -1,6 +1,6 @@
 # React-Student-Grade-Table
 
-The Student Grade Table: Written in React
+A student grade table: written in React.js
 
 ## Introduction
 
